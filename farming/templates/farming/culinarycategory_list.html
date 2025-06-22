@@ -1,0 +1,19 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Culinary Categories</title>
+</head>
+<body>
+    <h1>Culinary Categories</h1>
+    <ul>
+        {% for category in categories %}
+            <li>
+                <a href="{% url 'culinarycategory-detail' category.uuid %}">{{ category.name }}</a>
+                <a href="{% url 'culinarycategory-edit' category.uuid %}">Edit</a>
+                <a href="{% url 'culinarycategory-delete' category.uuid %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'culinarycategory-add' %}">Add New Category</a>
+</body>
+</html>

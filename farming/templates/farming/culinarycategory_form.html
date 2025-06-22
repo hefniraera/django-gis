@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if culinary_category %}Edit{% else %}Add{% endif %} Culinary Category</title>
+</head>
+<body>
+    <h1>{% if culinary_category %}Edit{% else %}Add{% endif %} Culinary Category</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'culinarycategory-list' %}">Cancel</a>
+</body>
+</html>

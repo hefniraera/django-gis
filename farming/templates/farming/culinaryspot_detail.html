@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ culinary_spot.name }}</title>
+</head>
+<body>
+    <h1>{{ culinary_spot.name }}</h1>
+    <p><strong>Description:</strong> {{ culinary_spot.description }}</p>
+    <p><strong>Category:</strong> {{ culinary_spot.category }}</p>
+    <p><strong>Geometry:</strong> {{ culinary_spot.geometry }}</p>
+    <a href="{% url 'culinaryspot-list' %}">Back to List</a>
+</body>
+</html>

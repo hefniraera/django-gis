@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Culinary Spot</title>
+</head>
+<body>
+    <h1>Delete Culinary Spot</h1>
+    <p>Are you sure you want to delete "{{ culinary_spot.name }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, Delete</button>
+    </form>
+    <a href="{% url 'culinaryspot-list' %}">Cancel</a>
+</body>
+</html>

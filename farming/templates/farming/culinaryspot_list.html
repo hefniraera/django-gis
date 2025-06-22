@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Culinary Spots</title>
+</head>
+<body>
+    <h1>Culinary Spots</h1>
+    <ul>
+        {% for spot in spots %}
+            <li>
+                <a href="{% url 'culinaryspot-detail' spot.uuid %}">{{ spot.name }}</a>
+                <a href="{% url 'culinaryspot-edit' spot.uuid %}">Edit</a>
+                <a href="{% url 'culinaryspot-delete' spot.uuid %}">Delete</a>
+            </li>
+        {% empty %}
+            <p>No Culinary Spots available.</p>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'culinaryspot-add' %}">Add New Culinary Spot</a>
+</body>
+</html>
