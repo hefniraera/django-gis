@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ culinary_category.name }}</title>
+</head>
+<body>
+    <h1>{{ culinary_category.name }}</h1>
+    <p><strong>Last Updated By:</strong> {{ culinary_category.last_update_by }}</p>
+    <p><strong>Notes:</strong> {{ culinary_category.notes|default:"No notes" }}</p>
+
+    <a href="{% url 'culinarycategory-edit' culinary_category.uuid %}">Edit</a>
+    <a href="{% url 'culinarycategory-delete' culinary_category.uuid %}">Delete</a>
+    <a href="{% url 'culinarycategory-list' %}">Back to List</a>
+</body>
+</html>

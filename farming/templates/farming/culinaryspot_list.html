@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Culinary Spots</title>
+</head>
+<body>
+    <h1>Culinary Spots</h1>
+    <ul>
+        {% for spot in culinary_spots %}
+            <li>
+                <a href="{{ spot.get_absolute_url }}">{{ spot.name }}</a> - {{ spot.category.name }}
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'culinaryspot-add' %}">Add New Culinary Spot</a>
+</body>
+</html>
+
+
+
