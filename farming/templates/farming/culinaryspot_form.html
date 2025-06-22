@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{% if culinary_spot %}Edit{% else %}Add{% endif %} Culinary Spot</title>
+    <title>Add Culinary Spot</title>
 </head>
 <body>
-    <h1>{% if culinary_spot %}Edit{% else %}Add{% endif %} Culinary Spot</h1>
+    <h1>Add Culinary Spot</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
+        <label for="id_geometry">Geometry (Point as WKT, e.g., POINT(1.23 4.56)):</label>
+        <input type="text" id="id_geometry" name="geometry">
         <button type="submit">Save</button>
     </form>
-    <a href="{% url 'culinaryspot-list' %}">Cancel</a>
 </body>
 </html>
