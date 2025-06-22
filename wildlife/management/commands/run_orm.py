@@ -3,7 +3,7 @@ from django.db.models import Count, Sum
 from wildlife.models import Property, PropertyType, Province, Organisation, AnnualPopulation, Taxon, User
 
 
-class RunORM(BaseCommand):
+class Command(BaseCommand):
     help = "Run Wildlife ORM"
 
     def function_1(self):
@@ -60,7 +60,7 @@ class RunORM(BaseCommand):
         """6. Organisation with largest area"""
         print("\n6. Organisation with largest area")
         organisation = Organisation.objects.annotate(
-            total_area=Sum('property__area_available_to_species')
+                total_area=Sum('property__annualpopulation__area_available_to_species')
         ).order_by('-total_area').first()
         print(f"- Organisation: {organisation.name}, Total Area: {organisation.total_area}")
 

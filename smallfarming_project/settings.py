@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.gis',  # Enable GIS support
     'farming',  # Your custom app for farming
-    'wildlife'
+    'wildlife',  # Your custom app for wildlife 
 ]
 
 MIDDLEWARE = [

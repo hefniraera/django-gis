@@ -30,6 +30,8 @@ class Organisation(models.Model):
     """Organisation model."""
 
     name = models.CharField(unique=True, max_length=250)
+    def __str__(self):
+        return self.name
     short_code = models.CharField(
         max_length=50,
         null=False,
@@ -47,6 +49,8 @@ class Organisation(models.Model):
 class Property(models.Model):
     """Property model."""
     name = models.CharField(max_length=300, unique=True)
+    def __str__(self):
+        return self.name
     short_code = models.CharField(
         max_length=50,
         null=False,
@@ -61,13 +65,19 @@ class Property(models.Model):
     )
     centroid = models.PointField(srid=4326, null=True, blank=True)
 
+    class Meta:
+        verbose_name = 'Property'
+        verbose_name_plural = 'Properties'
+        db_table = 'property'
 
 class TaxonRank(models.Model):
     """Taxon rank model."""
 
     # Example: Genus, Species
     name = models.CharField(max_length=250, unique=True)
-
+    rank_level = models.IntegerField(
+        null=True, blank=True, help_text="Rank level for sorting purposes"
+    )
     def __str__(self):
         return self.name
 
